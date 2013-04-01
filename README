@@ -241,7 +241,7 @@ the global factory, using a simple syntax : ``field__attr=42`` will set the attr
 
     class InnerFactory(factory.Factory):
         foo = 'foo'
-        bar = factory.LazyAttribute(lambda o: foo * 2)
+        bar = factory.LazyAttribute(lambda o: o.foo * 2)
 
     class ExternalFactory(factory.Factory):
         inner = factory.SubFactory(InnerFactory, foo='bar')
